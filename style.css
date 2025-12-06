@@ -12,27 +12,6 @@ body {
     color: #fff;
     position: relative;
 }
-/* Message scroll area */
-.message-wrapper {
-  position: relative;
-  height: 60vh;  /* Enough scrolling space */
-  overflow-y: auto;
-  padding-right: 10px;
-}
-
-/* Fade-out effect at bottom */
-.fade-bottom {
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 80px; /* bigger fade = more visible */
-  pointer-events: none;
-  background: linear-gradient(
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 1)
-  );  /* change to match your card background */
-}
 
 /* Floating hearts */
 .hearts {
@@ -62,7 +41,7 @@ body {
 .card-container {
     width: 90%;
     max-width: 360px;
-    height: 230px;
+    height: 300px;
     perspective: 1200px;
     z-index: 5;
 }
@@ -78,6 +57,7 @@ body {
     transform: rotateX(180deg);
 }
 
+/* Front and Inside */
 .front, .inside {
     position: absolute;
     width: 100%;
@@ -112,32 +92,21 @@ body {
     color: #444;
 }
 
-/* Photos */
-.photos {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px;
+/* Message Scroll + Fade */
+.message-wrapper {
+    height: 60%;
+    overflow-y: auto;
+    padding-right: 10px;
 }
 
-.photos img {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #ff9ecb;
-    box-shadow: 0 0 10px rgba(255,150,200,0.6);
-}
-
-/* Text */
-.title {
-    color: #ff4d94;
-    text-align: center;
-    font-weight: 600;
-}
-
-.msg {
-    color: #444;
+.fade-bottom {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    pointer-events: none;
+    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
 }
 
 /* Button */

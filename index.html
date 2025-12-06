@@ -6,33 +6,40 @@
     <title>Happy Birthday</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-    <div class="card">
+    <!-- Floating Hearts -->
+    <div class="hearts">
+        <span>💖</span><span>💖</span><span>💖</span>
+        <span>💖</span><span>💖</span>
+    </div>
 
-        <!-- COVER PAGE -->
-        <div class="cover" id="coverCard">
-            <h1 class="title">Happy Birthday My Love 💖</h1>
-            <button class="open-btn" id="openBtn">Open Card 🎀</button>
-        </div>
-
-        <!-- INSIDE CARD -->
-        <div class="inside hidden" id="insideCard">
-            <div class="fade-effect"></div>
-
-            <h2>My Birthday Wish For You 💌</h2>
-
-            <p id="message">
-                <!-- Your long birthday message goes here -->
-                My love, on your special day, I just want to tell you how grateful I am...
-            </p>
+    <!-- Card Container -->
+    <div class="card-container">
+        <div class="card" id="card">
+            <!-- Front -->
+            <div class="front">
+                <h1 class="title">Happy Birthday My Love 💖</h1>
+                <button id="openBtn">Open Card 🎀</button>
+            </div>
+            <!-- Inside -->
+            <div class="inside">
+                <div class="message-wrapper">
+                    <h2>My Birthday Wish For You 💌</h2>
+                    <p id="message">
+                        My love, on your special day, I just want to tell you how grateful I am for having you in my life. 
+                        Every moment with you is magical, and I cherish all our memories together. May your day be filled 
+                        with love, laughter, and all the happiness in the world. You deserve the universe and more. 💖
+                    </p>
+                </div>
+                <div class="fade-bottom"></div>
+            </div>
         </div>
     </div>
 
     <!-- Background Music -->
     <audio id="bgMusic" loop preload="auto">
-        <source src="audio/until-i-found-you-instrumental.mp3" type="audio/mpeg" />
+        <source src="audio/until-i-found-you-instrumental.mp3" type="audio/mpeg">
     </audio>
 
     <script src="script.js"></script>
