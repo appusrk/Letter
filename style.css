@@ -158,3 +158,11 @@ button:hover {
     0% { transform: scale(0) translate(0,0); opacity: 1; }
     100% { transform: scale(2) translate(var(--x), var(--y)); opacity: 0; }
 }
+.burst-hearts {
+    position: fixed;     /* so it appears above the card */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;       /* 🔥 ensures hearts are on TOP */
+}
