@@ -29,3 +29,21 @@ document.getElementById("openBtn").addEventListener("click", function () {
         console.log("Autoplay blocked.");
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+
+    const playBtn = document.getElementById("playVideoBtn");
+    const popup = document.getElementById("videoPopup");
+    const video = document.getElementById("vid1");
+
+    playBtn.addEventListener("click", () => {
+        popup.style.display = "flex";
+        video.currentTime = 0;
+        video.play();
+    });
+
+    video.addEventListener("ended", () => {
+        popup.style.display = "none";
+        window.location.href = "card.html";
+    });
+
+});
