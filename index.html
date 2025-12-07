@@ -10,13 +10,15 @@
 
     <button id="playVideoBtn">Click for the surprise 🎁</button>
 
-    <!-- Video Popup -->
-    <div id="videoPopup" class="video-popup">
-        <video id="vid1" playsinline controls>
-            <source src="./audio/first.mp4" type="video/mp4">
-        </video>
-    </div>
+   
+    <script >
+        const playVideoBtn = document.getElementById("playVideoBtn");
+        
+        playVideoBtn.addEventListener("click", () => {
+           window.location.href = "video.html";
+        });
 
-    <script src="script.js"></script>
+        
+    </script>
 </body>
 </html>

@@ -30,22 +30,34 @@ document.getElementById("openBtn").addEventListener("click", function () {
     });
 });
 document.addEventListener("DOMContentLoaded", () => {
-
     const playBtn = document.getElementById("playVideoBtn");
     const popup = document.getElementById("videoPopup");
     const video = document.getElementById("vid1");
 
     playBtn.addEventListener("click", () => {
-    popup.classList.add("show");   // use CSS class
-    video.currentTime = 0;
-    video.muted = true;            // helps autoplay on phones
-    video.play().catch(err => console.log("Video play error:", err));
+        popup.classList.add("show");   // Show popup
+        video.currentTime = 0;
+        video.muted = true;            // Critical for mobile autoplay
+
+        // Small delay to ensure video is ready to play
+        setTimeout(() => {
+            video.play().catch(err => console.log("Video play error:", err));
+        }, 50);
+    });
+
+    // When video ends, hide popup and redirect
+    video.addEventListener("ended", () => {
+        popup.classList.remove("show");
+        window.location.href = "card.html"; // Change this to your card page
+    });
+
+    // Optional: click outside video closes popup
+    popup.addEventListener("click", (e) => {
+        if(e.target === popup){
+            video.pause();
+            popup.classList.remove("show");
+        }
+    });
 });
 
 
-   video.addEventListener("ended", () => {
-    popup.classList.remove("show");
-    window.location.href = "card.html";
-});
-
-});

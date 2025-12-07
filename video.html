@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Surprise Video</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+        #surpriseBtn {
+            display: none; /* Hidden at first */
+            margin-top: 20px;
+            padding: 14px 22px;
+            font-size: 18px;
+            background-color: #ff4fa3;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 80, 140, 0.6);
+            transition: 0.3s;
+        }
+
+        #surpriseBtn:hover {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+
+<body>
+
+    <video id="introVideo" muted playsinline preload="auto">
+        <source src="./audio/first.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Hidden button that appears later -->
+    <button id="surpriseBtn" onclick="goToCard()">Here is your real surprise 💖</button>
+
+    <script>
+        const video = document.getElementById("introVideo");
+        const button = document.getElementById("surpriseBtn");
+
+        // Required for mobile autoplay
+        video.muted = true;
+        video.playsInline = true;
+
+        // Try autoplay after slight delay
+        setTimeout(() => {
+            video.play().catch(err => {
+                console.log("Autoplay blocked:", err);
+
+                // Backup: allow user tap anywhere to play
+                document.body.addEventListener("click", () => {
+                    video.play();
+                }, { once: true });
+            });
+        }, 150);
+
+        // When video ends → show button
+        video.addEventListener("ended", () => {
+            button.style.display = "block";
+        });
+
+        // Redirect to next page
+        function goToCard() {
+            window.location.href = "card.html";
+        }
+    </script>
+
+</body>
+</html>
