@@ -37,8 +37,7 @@ body {
     100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
 }
 
-/* Card container */
-.card-container {
+/* Card container */.card-container {
     width: 90%;
     max-width: 360px;
     perspective: 1200px;
