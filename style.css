@@ -57,7 +57,7 @@ body {
 
 
 .open-card {
-    transform: rotateY(180deg);
+    transform: rotateX(180deg);
 }
 
 /* Front and Inside */
