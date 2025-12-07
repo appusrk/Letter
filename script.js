@@ -36,14 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const video = document.getElementById("vid1");
 
     playBtn.addEventListener("click", () => {
-        popup.style.display = "flex";
-        video.currentTime = 0;
-        video.play();
-    });
+    popup.classList.add("show");   // use CSS class
+    video.currentTime = 0;
+    video.muted = true;            // helps autoplay on phones
+    video.play().catch(err => console.log("Video play error:", err));
+});
 
-    video.addEventListener("ended", () => {
-        popup.style.display = "none";
-        window.location.href = "card.html";
-    });
+
+   video.addEventListener("ended", () => {
+    popup.classList.remove("show");
+    window.location.href = "card.html";
+});
 
 });
