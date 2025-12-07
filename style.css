@@ -42,10 +42,6 @@ body {
     max-width: 360px;
     perspective: 1200px;
     z-index: 5;
-
-    transform: translateX(-15px); /* shift left smoothly */
-}
-
 }
 
 /* Card */
