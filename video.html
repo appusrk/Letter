@@ -24,7 +24,7 @@
         }
 
         #surpriseBtn {
-            display: none; /* Hidden at first */
+            display: none;
             margin-top: 20px;
             padding: 14px 22px;
             font-size: 18px;
@@ -45,39 +45,23 @@
 
 <body>
 
-    <video id="introVideo" muted playsinline preload="auto">
+    <!-- No autoplay, so audio works normally -->
+    <video id="introVideo" controls playsinline>
         <source src="./audio/first.mp4" type="video/mp4" />
     </video>
 
-    <!-- Hidden button that appears later -->
+    <!-- Button that appears after video ends -->
     <button id="surpriseBtn" onclick="goToCard()">Here is your real surprise 💖</button>
 
     <script>
         const video = document.getElementById("introVideo");
         const button = document.getElementById("surpriseBtn");
 
-        // Required for mobile autoplay
-        video.muted = true;
-        video.playsInline = true;
-
-        // Try autoplay after slight delay
-        setTimeout(() => {
-            video.play().catch(err => {
-                console.log("Autoplay blocked:", err);
-
-                // Backup: allow user tap anywhere to play
-                document.body.addEventListener("click", () => {
-                    video.play();
-                }, { once: true });
-            });
-        }, 150);
-
-        // When video ends → show button
+        // When video finishes → show button
         video.addEventListener("ended", () => {
             button.style.display = "block";
         });
 
-        // Redirect to next page
         function goToCard() {
             window.location.href = "card.html";
         }
